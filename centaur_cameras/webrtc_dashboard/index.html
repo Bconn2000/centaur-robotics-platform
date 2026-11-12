@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centaur | Four Camera Dashboard</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #101820;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #192734;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 2px solid #34495e;
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 3px;
+}
+
+header p {
+    color: #aab8c5;
+    margin: 6px 0 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 12px;
+    max-width: 1600px;
+    margin: auto;
+}
+
+.camera {
+    min-width: 0;
+    background: black;
+    border: 2px solid #34495e;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.camera h2 {
+    margin: 0;
+    padding: 10px;
+    background: #192734;
+    font-size: 17px;
+    text-align: center;
+}
+
+iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    background: black;
+}
+
+footer {
+    text-align: center;
+    padding: 12px;
+    color: #8a9baa;
+    font-size: 12px;
+}
+
+@media (max-width: 700px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<script>
+document.querySelectorAll("iframe[data-camera]").forEach(frame => {
+    const camera = frame.dataset.camera;
+    const host = window.location.hostname;
+
+    frame.src =
+        `http://${host}:8889/${camera}?controls=false&muted=true&autoplay=true`;
+});
+</script>
+<body>
+
+<header>
+    <h1>CENTAUR</h1>
+    <p>Live Four-Camera Monitoring System</p>
+</header>
+
+<main class="grid">
+
+    <section class="camera">
+        <h2>FRONT LEFT — USB 2</h2>
+        <iframe
+            src=""data-camera="camera1"
+            allow="autoplay; fullscreen">
+        </iframe>
+    </section>
+
+    <section class="camera">
+        <h2>FRONT RIGHT — USB 1</h2>
+        <iframe
+            src=""data-camera="camera2"
+            allow="autoplay; fullscreen">
+        </iframe>
+    </section>
+
+    <section class="camera">
+        <h2>REAR LEFT — USB 4</h2>
+        <iframe
+            src=""data-camera="camera3"
+            allow="autoplay; fullscreen">
+        </iframe>
+    </section>
+
+    <section class="camera">
+        <h2>REAR RIGHT — USB 3</h2>
+        <iframe
+            src=""data-camera="camera4"
+            allow="autoplay; fullscreen">
+        </iframe>
+    </section>
+
+</main>
+
+<footer>
+    CENTAUR ROBOTICS PLATFORM | LIVE VIDEO
+</footer>
+
+</body>
+</html>

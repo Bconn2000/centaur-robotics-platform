@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Centaur Camera Dashboard</title>
+    <style>
+        body {
+            background: #111827;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        .cameras {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .camera {
+            background: #1f2937;
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .camera img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .camera:last-child {
+            grid-column: 1 / 3;
+            width: 65%;
+            justify-self: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Centaur Robot - Live Camera Dashboard</h1>
+
+    <div class="cameras">
+
+        <div class="camera">
+            <h2>Camera 1</h2>
+            <img src="/camera1/?action=stream">
+        </div>
+
+        <div class="camera">
+            <h2>Camera 2</h2>
+            <img src="/camera2/?action=stream">
+        </div>
+
+        <div class="camera">
+            <h2>Camera 3</h2>
+            <img src="camera3/?action=stream">
+        </div>
+
+    </div>
+</body>
+</html>
